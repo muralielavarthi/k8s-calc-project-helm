@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: mysql-deployment
   namespace: calc-namespace
   labels:
-    app: backend
+    app: mysql
     project: calc
     division: finance
 spec:
   replicas: 2
   selector:
-    matchLabels: # used to identify the pods that belong to this deployment, has to match .spec.template.metadata.labels
-      app: backend
+    matchLabels:
+      app: mysql
       project: calc
       division: finance
   template:
     metadata:
       labels:
-        app: backend
+        app: mysql
         project: calc
         division: finance
     spec:
       containers:
-        - name: backend
-          image: muralielavarthi/backend:2.0.0
-          envFrom:
+        - name: mysql
+          image: muralielavarthi/mysql:{{ .Values.deployment.imageVersion }}
+          envFrom: # dynamic updates will not be reflected in running pods.
             - configMapRef:
-                name: backend-config
+                name: database-config

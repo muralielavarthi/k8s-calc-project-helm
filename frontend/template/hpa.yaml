@@ -12,12 +12,12 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: frontend-deployment
-  minReplicas: 1
-  maxReplicas: 5
+  minReplicas: { { .Values.hpa.minReplicas } }
+  maxReplicas: { { .Values.hpa.maxReplicas } }
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 5 #50% CPU utilization target
+          averageUtilization: { { .Values.hpa.cpuUtilization } } #50% CPU utilization target

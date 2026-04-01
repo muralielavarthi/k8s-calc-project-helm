@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: muralielavarthi/frontend:2.0.0
+          image: muralielavarthi/frontend:{{ .Values.deployment.imageVersion }}
           resources:
             requests: #soft limits
               memory: "64Mi"

@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: backend-config
+  name: database-config
   namespace: calc-namespace
   labels:
-    app: backend
+    app: database
     project: calc
     division: finance
 data:
-  BACKEND_PORT: "8080"
-  MYSQL_ROOT_PASSWORD: root
-  MYSQL_DATABASE: calcdb
+  MYSQL_ROOT_PASSWORD: { { .Values.config.mysqlRootPassword } }
+  MYSQL_DATABASE: { { .Values.config.mysqlDatabase } }
   MYSQL_HOST: mysql
   MYSQL_PORT: "3306"

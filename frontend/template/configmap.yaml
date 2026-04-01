@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: calc-namespace
+  labels:
+    app: frontend
+    project: calc
+    division: finance
+data:
+  nginx.conf: { { .Values.config.nginxConfig } }

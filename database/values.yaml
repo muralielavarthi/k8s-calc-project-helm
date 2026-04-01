@@ -1,0 +1,6 @@
+deployment:
+  imageVersion: 2.0.0
+  replicas: 2
+config:
+  mysqlRootPassword: root
+  mysqlDatabase: calcdb
