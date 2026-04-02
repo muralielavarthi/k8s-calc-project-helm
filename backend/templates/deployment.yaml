@@ -8,7 +8,7 @@ metadata:
     project: calc
     division: finance
 spec:
-  replicas: "{{ .Values.deployment.replicas }}"
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels: # used to identify the pods that belong to this deployment, has to match .spec.template.metadata.labels
       app: backend
