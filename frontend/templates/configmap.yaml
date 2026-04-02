@@ -8,4 +8,9 @@ metadata:
     project: calc
     division: finance
 data:
-  nginx.conf: {{ .Values.config.nginxConfig }}
+  nginx.conf: |
+{{ .Values.config.nginxConfig | nindent 4 }}
+
+#| → tells YAML this is a multi-line string
+#nindent 4 → correctly indents all lines so YAML stays valid
+#Helm safely injects your config without breaking parsing
