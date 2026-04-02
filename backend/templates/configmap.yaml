@@ -9,7 +9,7 @@ metadata:
     division: finance
 data:
   BACKEND_PORT: "8080"
-  MYSQL_ROOT_PASSWORD: { { .Values.config.mysqlRootPassword } }
+  MYSQL_ROOT_PASSWORD: "{{ .Values.config.mysqlRootPassword }}"
   MYSQL_DATABASE: calcdb
   MYSQL_HOST: mysql
   MYSQL_PORT: "3306"
