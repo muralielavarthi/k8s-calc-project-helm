@@ -9,6 +9,6 @@ metadata:
     division: finance
 data:
   MYSQL_ROOT_PASSWORD: { { .Values.config.mysqlRootPassword } }
-  MYSQL_DATABASE: { { .Values.config.mysqlDatabase } }
+  MYSQL_DATABASE: calcdb
   MYSQL_HOST: mysql
   MYSQL_PORT: "3306"

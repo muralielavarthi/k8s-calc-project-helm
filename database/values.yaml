@@ -3,4 +3,3 @@ deployment:
   replicas: 2
 config:
   mysqlRootPassword: root
-  mysqlDatabase: calcdb
